@@ -1,0 +1,56 @@
+﻿@model List<SimpleWebApp.Models.Person>
+@{
+    ViewBag.Title = "SQL tests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h2>SQL tests</h2>
+    <p>Use below form to issue queries and get back the results.</p>
+    <p>
+        <a class="btn btn-primary btn-lg"
+           href="https://webeudatastorage.blob.core.windows.net/web/Create-Persons-Table-With-Data.sql">
+            Download SQL script to create database and generate data &raquo;
+        </a>
+    </p>
+</div>
+
+<div class="row">
+    <form method="get">
+        <div class="form-group">
+            <label for="txtFullName">Enter full name query</label>
+            <input class="form-control"
+                   id="txtFullName"
+                   name="fullName"
+                   placeholder="enter query for fullname"
+                   type="text">
+        </div>
+        <button class="btn btn-default"
+                type="submit">
+            Search <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+    </form>
+
+    @if (Model.Any())
+    {
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    Fullname
+                </td>
+                <td>Age</td>
+            </tr>
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td>@person.FullName</td>
+                    <td>@person.Age</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p class="text-info">No data based on filter is present. Check data!</p>
+    }
+</div>
