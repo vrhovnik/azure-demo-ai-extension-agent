@@ -8,7 +8,7 @@
     <h2>SQL tests</h2>
     <p>Use below form to issue queries and get back the results.</p>
     <p>
-        <a class="btn btn-primary btn-lg"
+        <a class="btn btn-primary"
            href="https://webeudatastorage.blob.core.windows.net/web/Create-Persons-Table-With-Data.sql">
             Download SQL script to create database and generate data &raquo;
         </a>
@@ -22,6 +22,7 @@
             <input class="form-control"
                    id="txtFullName"
                    name="fullName"
+                   value="@ViewBag.Query"
                    placeholder="enter query for fullname"
                    type="text">
         </div>
@@ -33,7 +34,7 @@
 
     @if (Model.Any())
     {
-        <table class="table table-striped">
+        <table class="table table-striped mt-10">
             <tr>
                 <td>
                     Fullname
@@ -51,6 +52,6 @@
     }
     else
     {
-        <p class="text-info">No data based on filter is present. Check data!</p>
+        <p class="text-info mt-10">No data based on filter is present. Check data!</p>
     }
 </div>

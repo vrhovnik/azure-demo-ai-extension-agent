@@ -22,17 +22,17 @@ namespace SimpleWebApp.Controllers
             try
             {
                 var query = "SELECT PersonId,FullName,Age FROM Persons ";
-                if (connection.State == ConnectionState.Closed)
-                    await connection.OpenAsync();
-
                 var sqlCommand = new SqlCommand();
                 if (!string.IsNullOrEmpty(fullName))
                 {
-                    query += "WHERE FullName LIKE '%@fullName%' ORDER BY FullName ASC";
+                    query += "WHERE FullName LIKE '%' + @fullName + '%' ORDER BY FullName ASC";
                     sqlCommand.Parameters.AddWithValue("@fullName", fullName);
                 }
 
                 sqlCommand.CommandText = query;
+                if (connection.State == ConnectionState.Closed)
+                    await connection.OpenAsync();
+                sqlCommand.Connection = connection;
                 var dataReader = await sqlCommand.ExecuteReaderAsync();
 
                 while (dataReader.Read())
@@ -51,6 +51,7 @@ namespace SimpleWebApp.Controllers
                 Debug.WriteLine(e.Message);
             }
 
+            ViewBag.Query = fullName;
             return View(list);
         }
 
