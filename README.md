@@ -2,6 +2,8 @@
 
 Demo app to demonstrate usage for virtual machines using Application Insights Agent ([.NET framework](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)) to demonstrate functionalities like [**auto instrumentation**](https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-vm-vmss-apps#enable-application-insights) approach, [advanced SQL tracking to get full SQL query](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-dependencies#advanced-sql-tracking-to-get-full-sql-query), etc.
 
+How to install the agent, you can use GUI from Azure Portal (more information [here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-vm-vmss-apps#enable-application-insights)) or using [PowerShell steps](https://docs.microsoft.com/en-us/azure/azure-monitor/app/status-monitor-v2-get-started#install-prerequisites).
+
 ## AI Agent diagnostics
 
 If agent doesn't collect data or there are some challenges with getting SQL data, then you can try a few steps to mitigate the challenge:
